@@ -7,7 +7,7 @@ from logger import logger
 from dotenv import load_dotenv
 load_dotenv()
 
-SYNCH_CHECK_FREQUENCY = 10
+SYNCH_CHECK_FREQUENCY = 60 * 5
 
 LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
 GITHUB_REPO_OWNER   = os.getenv("GITHUB_REPO_OWNER")
