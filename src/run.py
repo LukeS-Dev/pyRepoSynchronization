@@ -30,9 +30,24 @@ def start():
         else: 
             #Update local Repo.
             log.logToFile("Remote Repo & Local Repo out of Sync current SHA : " + localGitRepo.getLocalRepoHash() + " performing update")
+
+            isRepoDirty = gitSynchronization.isRepoDirty()
+
+            if(isRepoDirty == True):
+                log.logToFile("Branch has unsaved changes, running stash save")
+                response = gitSynchronization.stashSave()
+                log.logToFile(response)
+
+
             response = gitSynchronization.updateLocalRepo()
             log.logToFile("Git Response - " + response)
             log.logToFile("Git Pull complete, new SHA : " + localGitRepo.getLocalRepoHash())
+
+            if(isRepoDirty == True):
+                log.logToFile("Stash Popped.")
+                response = gitSynchronization.stashPop()
+                log.logToFile(response)
+
 
             ##TODO : Add code here for POST update scripting.
 

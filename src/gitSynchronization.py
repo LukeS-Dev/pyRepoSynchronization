@@ -21,6 +21,24 @@ def updateLocalRepo():
  
     return pull_info.split('\n')[0] 
 
+#Check if there are changed files.
+def isRepoDirty():
+    LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
+    repo = git.Repo(LOCAL_GIT_REPO_PATH)
+    return repo.is_dirty(untracked_files=True)
+
+def stashSave():
+    LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
+    repo = git.Repo(LOCAL_GIT_REPO_PATH)
+    response = repo.git.stash()
+    return response
+
+def stashPop():
+    LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
+    repo = git.Repo(LOCAL_GIT_REPO_PATH)
+    response = repo.git.stash('pop')
+    return response
+
 def printLocalRemoteSha():
     LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
     
