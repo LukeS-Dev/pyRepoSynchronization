@@ -38,5 +38,5 @@ SYSTEM_LOG_FILE = events.log <br><br>
 In the root directory run. 
 
 ```
-python start.py
+python start.py 
 ```
