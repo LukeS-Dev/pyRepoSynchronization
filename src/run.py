@@ -29,9 +29,10 @@ def start():
             log.logToFile("Git Repo in Sync, Currently SHA : " + localGitRepo.getLocalRepoHash())
         else: 
             #Update local Repo.
-            log.logToFile("Remote Repo & Local Repo out of Sync, performing update")
+            log.logToFile("Remote Repo & Local Repo out of Sync current SHA : " + localGitRepo.getLocalRepoHash() + " performing update")
             response = gitSynchronization.updateLocalRepo()
             log.logToFile("Git Response - " + response)
+            log.logToFile("Git Pull complete, new SHA : " + localGitRepo.getLocalRepoHash())
 
             ##TODO : Add code here for POST update scripting.
 
