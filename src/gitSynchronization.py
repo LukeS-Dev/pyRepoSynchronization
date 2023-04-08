@@ -1,6 +1,8 @@
 import localGitRepo
 import remoteGitRepo
 import os
+import git
+
 from dotenv import load_dotenv
 
 def compareSha(sha1,sha2):
@@ -9,8 +11,15 @@ def compareSha(sha1,sha2):
 def checkLocalRemoteSync():
     localSha = localGitRepo.getLocalRepoHash()
     remoteSha = remoteGitRepo.getGithubRepoHash()
-
     return compareSha(localSha,remoteSha)
+
+#Update Local Repo.
+def updateLocalRepo():
+    LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
+    repo = git.Repo(LOCAL_GIT_REPO_PATH)
+    pull_info = repo.git.pull()
+ 
+    return pull_info.split('\n')[0] 
 
 def printLocalRemoteSha():
     LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
@@ -25,3 +34,4 @@ def printLocalRemoteSha():
     url = f'https://github.com/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}/branches/{GITHUB_REPO_BRANCH}'
     print("Remote Repo      : " + url)
     print("Repo SHA         : " + remoteGitRepo.getGithubRepoHash())
+

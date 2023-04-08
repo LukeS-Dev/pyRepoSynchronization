@@ -30,6 +30,8 @@ GITHUB_REPO_BRANCH  = main <br><br>
 
 LOCAL_GIT_REPO_PATH = . <br><br>
 
+SYSTEM_LOG_FILE = events.log <br><br>
+
 ---
 ## Starting the application.
 
