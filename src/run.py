@@ -19,8 +19,8 @@ def start():
     log = logger()
     log.logToFile("-------------------------------------")
     log.logToFile("Git Synchronization Mainloop Started.")
-    log.logToFile(f"Remote Repo Hook at - https://github.com/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}/branches/{GITHUB_REPO_BRANCH}")
-    log.logToFile(f"Local Repo at folder -  {LOCAL_GIT_REPO_PATH}")
+    log.logToFile(f"[Remote Repo Hook at - https://github.com/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}/branches/{GITHUB_REPO_BRANCH}]")
+    log.logToFile(f"[Local Repo at folder -  {LOCAL_GIT_REPO_PATH}]")
 
     #Start event Loop.
     while(True):
