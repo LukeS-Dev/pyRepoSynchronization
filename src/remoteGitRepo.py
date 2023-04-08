@@ -17,7 +17,7 @@ def getGithubRepoInfo():
     headers = {'User-Agent': 'Mozilla/5.0'}
 
     if (GITHUB_AUTHORIZATION_TOKEN):
-        headers['Authroization'] = f'token {GITHUB_AUTHORIZATION_TOKEN}'
+        headers['Authorization'] = f'token {GITHUB_AUTHORIZATION_TOKEN}'
 
     response = requests.get(url, headers=headers)
 
