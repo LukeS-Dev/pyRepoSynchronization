@@ -15,6 +15,11 @@ pip install -r requirements.txt
 After installing the requirements, on first use - this application requires an .env file to be created in the root directory. Example configuration can be seen below.<br>
 
 ### Environment Variables.
+Create a .env file in the project directory and
+
+![image](https://user-images.githubusercontent.com/110707048/230695654-409acce3-f4b7-4584-8159-683098de443d.png)
+
+After this copy and paste the following configuration into the ENV variables. This will compare the pulled version of pyRepoSynchronization to this github repo. You can modify the .env file to suit your own needs.
 
 GITHUB_REPO_OWNER   = LukeS-Dev <br>
 GITHUB_REPO_NAME    = pyRepoSynchronization <br>
