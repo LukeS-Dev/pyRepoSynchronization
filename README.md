@@ -24,13 +24,14 @@ Create a .env file in the project directory
 
 After this copy and paste the following configuration into the ENV variables. This will compare the pulled version of pyRepoSynchronization to this github repo. You can modify the .env file to suit your own needs.
 
-GITHUB_REPO_OWNER   = LukeS-Dev <br>
-GITHUB_REPO_NAME    = pyRepoSynchronization <br>
-GITHUB_REPO_BRANCH  = main <br><br>
+GITHUB_AUTHORIZATION_TOKEN  = ************ (Github Auth token, required if repo is private)
+GITHUB_REPO_OWNER           = LukeS-Dev <br>
+GITHUB_REPO_NAME            = pyRepoSynchronization <br>
+GITHUB_REPO_BRANCH          = main <br><br>
 
-LOCAL_GIT_REPO_PATH = . <br><br>
+LOCAL_GIT_REPO_PATH         = . <br><br>
 
-SYSTEM_LOG_FILE = events.log <br><br>
+SYSTEM_LOG_FILE             = events.log <br><br>
 
 ---
 ## Starting the application.
