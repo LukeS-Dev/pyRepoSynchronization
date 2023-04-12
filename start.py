@@ -5,7 +5,7 @@ sys.path.insert(1, './src')
 sys.path.insert(2, './gui')
 
 import run
-import guiSetup
+import guiRender
 
 #Parsing arguments.
 parser = argparse.ArgumentParser()
@@ -15,6 +15,6 @@ args = parser.parse_args()
 
 
 if args.config:    
-    guiSetup.start()
+    guiRender.start()
 else: 
     run.start()

@@ -1,7 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 
+from envFileMethods import envFile
+
 def start():
+    environment = envFile()
+    environment.load()
+    environment.printConfig()
+
     root = Tk()
 
     frame_environment_config = ttk.Frame(root, padding=10)
