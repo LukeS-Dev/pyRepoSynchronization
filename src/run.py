@@ -31,9 +31,9 @@ def start():
             #Update local Repo.
             log.logToFile("Remote Repo & Local Repo out of Sync current SHA : " + localGitRepo.getLocalRepoHash() + " performing update")
 
-            isRepoDirty = gitSynchronization.isRepoDirty()
+            is_repo_dirty = gitSynchronization.isRepoDirty()
 
-            if(isRepoDirty == True):
+            if(is_repo_dirty == True):
                 log.logToFile("Branch has unsaved changes, running stash save")
                 response = gitSynchronization.stashSave()
                 log.logToFile(response)
@@ -43,7 +43,7 @@ def start():
             log.logToFile("Git Response - " + response)
             log.logToFile("Git Pull complete, new SHA : " + localGitRepo.getLocalRepoHash())
 
-            if(isRepoDirty == True):
+            if(is_repo_dirty == True):
                 log.logToFile("Stash Popped.")
                 response = gitSynchronization.stashPop()
                 log.logToFile(response)
