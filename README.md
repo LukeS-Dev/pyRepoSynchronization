@@ -24,21 +24,22 @@ Create a .env file in the project directory
 
 After this copy and paste the following configuration into the ENV variables. This will compare the pulled version of pyRepoSynchronization to this github repo. You can modify the .env file to suit your own needs.
 
-GITHUB_AUTHORIZATION_TOKEN  = ************ (Github Auth token, required if repo is private)
-GITHUB_REPO_OWNER           = LukeS-Dev <br>
-GITHUB_REPO_NAME            = pyRepoSynchronization <br>
-GITHUB_REPO_BRANCH          = main <br><br>
+You can find a .env example in <b>examples/env_file.txt</b> in the project directory.
 
-LOCAL_GIT_REPO_PATH         = . <br>
-GIT_PYTHON_GIT_EXECUTABLE   = path/to/git/executable (OPTIONAL) <br><br>
+## Environment Variable GUI.
+An alternate way to configure the Environment Variables, you can use the GUI by running the command. 
 
-SYSTEM_LOG_FILE             = events.log <br><br>
+```
+python start.py -c 
 
+or 
 
----
+python start.py --config
+```
+
 ## Starting the application.
 
-In the root directory run. 
+In the root directory run. Please note if a .env file is not configured, running the start command will result in an error.
 
 ```
 python start.py 
