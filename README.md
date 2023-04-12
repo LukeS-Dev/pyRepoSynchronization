@@ -29,9 +29,11 @@ GITHUB_REPO_OWNER           = LukeS-Dev <br>
 GITHUB_REPO_NAME            = pyRepoSynchronization <br>
 GITHUB_REPO_BRANCH          = main <br><br>
 
-LOCAL_GIT_REPO_PATH         = . <br><br>
+LOCAL_GIT_REPO_PATH         = . <br>
+GIT_PYTHON_GIT_EXECUTABLE   = path/to/git/executable (OPTIONAL) <br><br>
 
 SYSTEM_LOG_FILE             = events.log <br><br>
+
 
 ---
 ## Starting the application.
