@@ -12,20 +12,29 @@ class configGui:
         self.envHandler = envFile()
         self.root = Tk()
         
-        self.root.geometry("500x300")
+        self.root.geometry("570x320")
         self.root.title("PyRepoSynchronization Config tool")
+        self.root.minsize(570,320)
+
+        marginFrame = Frame(self.root,relief=GROOVE)
+        marginFrame.pack(fill= BOTH, expand= True, padx= 18, pady=20)
+
+        centeredFrame = Frame()
+        centeredFrame.place(in_=marginFrame, anchor="c", relx=.5, rely=.5)
+
 
         self.init_string_vars()
-        self.make_GitHub_config_gui(self.root)
-        self.make_localGit_config_gui(self.root)
-        self.make_git_file_dialogs(self.root)
-        self.make_system_config_gui(self.root)
-        self.make_save_button_gui(self.root)
+        self.make_GitHub_config_gui(centeredFrame)
+        self.make_localGit_config_gui(centeredFrame)
+        self.make_git_file_dialogs(centeredFrame)
+        self.make_system_config_gui(centeredFrame)
+        self.make_save_button_gui(centeredFrame)
     
     def render(self):
         self.root.mainloop()
     
     def make_GitHub_config_gui(self,parent):
+        xpadding_entry = 15 
         frame_github_config = ttk.Frame(parent,padding=10)
         frame_github_config.grid(column=0, row=0, sticky="W")
 
@@ -36,28 +45,29 @@ class configGui:
                                                     'Note: Only required if repo is private')
 
         entry_github_token = ttk.Entry(frame_github_config,textvariable=self.sv_github_token,width=60)
-        entry_github_token.grid(column=1, row=0, sticky="E")
+        entry_github_token.grid(column=1, row=0, sticky="E",padx=xpadding_entry)
 
 
         # GITHUB_REPO_OWNER 
         label_github_owner = ttk.Label(frame_github_config, text="Github Repo Owner")
         label_github_owner.grid(column=0, row=1, sticky="W")
         entry_github_owner = ttk.Entry(frame_github_config,textvariable=self.sv_github_owner,width=60)
-        entry_github_owner.grid(column=1, row=1, sticky="E")
+        entry_github_owner.grid(column=1, row=1, sticky="E",padx=xpadding_entry)
 
         # GITHUB_REPO_NAME 
         label_github_repo = ttk.Label(frame_github_config, text="Github Repo Name")
         label_github_repo.grid(column=0, row=2, sticky="W")
         entry_github_repo = ttk.Entry(frame_github_config,textvariable=self.sv_github_repo,width=60)
-        entry_github_repo.grid(column=1, row=2, sticky="E")
+        entry_github_repo.grid(column=1, row=2, sticky="E",padx=xpadding_entry)
 
         # GITHUB_REPO_BRANCH
         label_github_branch = ttk.Label(frame_github_config, text="Github Repo Branch")
         label_github_branch.grid(column=0, row=3, sticky="W")
         entry_github_branch = ttk.Entry(frame_github_config,textvariable=self.sv_github_branch,width=60)
-        entry_github_branch.grid(column=1, row=3, sticky="E")
+        entry_github_branch.grid(column=1, row=3, sticky="E",padx=xpadding_entry)
     
     def make_localGit_config_gui(self,parent):
+        xpadding_entry = 19
         frame_git_config= ttk.Frame(parent,padding=10)
         frame_git_config.grid(column=0, row=1, sticky="W")
 
@@ -68,7 +78,7 @@ class configGui:
                                                 'Click "Browse file to navigate ')
 
         entry_git_exe_path = ttk.Entry(frame_git_config,textvariable=self.sv_local_repo_path,width=60)
-        entry_git_exe_path.grid(column=1, row=1, sticky="E")
+        entry_git_exe_path.grid(column=1, row=1, sticky="E",padx=xpadding_entry)
 
         # GIT_PYTHON_GIT_EXECUTABLE
         label_git_exe = ttk.Label(frame_git_config, text="Git executable path")
@@ -78,7 +88,7 @@ class configGui:
                                              'Note: Leaving this empty will select the default environment executable')
         
         entry_git_exe_path = ttk.Entry(frame_git_config,textvariable=self.sv_git_exe_path,width=60)
-        entry_git_exe_path.grid(column=1, row=2, sticky="E")
+        entry_git_exe_path.grid(column=1, row=2, sticky="E",padx=xpadding_entry)
 
     def make_git_file_dialogs(self,parent):
         frame_git_fd= ttk.Frame(parent)
@@ -91,6 +101,7 @@ class configGui:
         button_git_exe.grid(column=1, row=3)
 
     def make_system_config_gui(self,parent):
+        xpadding_entry = 52 
         frame_log_config= ttk.Frame(parent,padding=10)
         frame_log_config.grid(column=0, row=3, sticky="W")
 
@@ -101,7 +112,7 @@ class configGui:
                                                 'Log files save to root project path by default')
         
         entry_system_log = ttk.Entry(frame_log_config,textvariable=self.sv_system_log_file,width=60)
-        entry_system_log.grid(column=1, row=1, sticky="E")
+        entry_system_log.grid(column=1, row=1, sticky="E",padx=xpadding_entry)
         pass 
     
     #Instantiate all the string variables used for config.
